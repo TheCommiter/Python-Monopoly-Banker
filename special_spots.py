@@ -8,12 +8,17 @@ def handle_special_spot(newSpace, currentPlayer, playerList):
     {"message": "Advance to Boardwalk", "effect": "move_to_space", "space": 39},
     {"message": "Bank pays you dividend of $50", "effect": "collect_money", "amount": 50},
     {"message": "Move forward to the nearest railroad", "effect": "move_to_nearest_railroad"},
+    {"message": "Move forward to the nearest railroad", "effect": "move_to_nearest_railroad"},
     {"message": "Get out of jail free", "effect": "get_out_of_jail"},
+    {"message": "Go directly to Jail", "effect": "go_to_jail"},
     {"message": "Pay $100 in taxes", "effect": "pay_tax", "amount": 100},
     {"message": "Collect $150 for passing Go", "effect": "collect_money", "amount": 150},
     {"message": "Advance to Illinois Avenue", "effect": "move_to_space", "space": 24},
-    {"message": "Pay $25 for car repairs", "effect": "pay_money", "amount": 25},
-    {"message": "Move to nearest utility", "effect": "move_to_nearest_utility"}
+    {"message": "Advance to St. Charles Place", "effect": "move_to_space", "space": 11},
+    {"message": "Advance to Reading Railroad", "effect": "move_to_space", "space": 5},
+    {"message": "Pay $15 for speeding fines", "effect": "pay_money", "amount": 15},
+    {"message": "Move to nearest utility", "effect": "move_to_nearest_utility"},
+    {"message": "Maturing building loan gives you $150", "effect": "collect_money", "amount": 150}
     # Add 18 more cards as per the standard rules or create new ones as needed
         ]
 
@@ -46,6 +51,8 @@ def handle_special_spot(newSpace, currentPlayer, playerList):
     elif newSpace == "luxury tax":
         print("You landed on luxury tax! pay 100$ to the bank!")
         currentPlayer.wallet -= 100
+    elif newSpace == "go to jail":
+        print(f"{currentPlayer.name} goes directly to Jail!")
     else:
         print(f"{currentPlayer.name} landed on {newSpace}. This is a special space. More development coming soon!")
 

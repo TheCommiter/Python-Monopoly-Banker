@@ -123,29 +123,30 @@ def afterTurnMenu(currentPlayer, playerList, monopolies):
         print(f"players monopolies: {currentPlayer.monopolies}")
 
         try:
-            action = int(input(f"{currentPlayer.name}, what would you like to do?: "))
-            if action in range(1,7):
+            action = input(f"{currentPlayer.name}, what would you like to do?: ")
+            if action in range(1,5) or action == "":
                 break
         except ValueError:
-            print("invalid option, choose 1-6 please...")
+            print("invalid option, choose 1-5 or press enter, please...")
         except Exception as e:
             print(type(e), e)
             
 
-    if action == 1:
+    if action == "1":
         view_properties(currentPlayer)
-    elif action == 2:
+    elif action == "2":
         print("Buy House Menu!")
         buy_house_menu(currentPlayer, monopolies)
-    elif action == 3:
+    elif action == "3":
         print("Sell House Menu!")
         sell_house_menu(currentPlayer, monopolies)
-    elif action == 4:
+    elif action == "4":
         print("buy/morgage properties!")
-        
-    elif action == 5:
+    elif action == "5":
         print("Make trade menu!")
         trade.make_trade(currentPlayer, playerList)
+    elif action == "":
+        switchTurn(currentPlayer, playerList)
     return action
 
 
